@@ -1,0 +1,73 @@
+*
+{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body
+{
+    line-height: 1.7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1,h2
+{
+    margin-bottom: 10px;
+}
+
+h1
+{
+    font-size: 1.4rem;
+}
+h2
+{
+    font-size: 1.1rem;
+}
+
+
+#container
+{
+    max-width: 800px;
+    width:90%;
+    margin:0 auto;
+}
+
+.grid
+{
+    display:grid;
+}
+
+.grid-col-4
+{
+    grid-template-columns: repeat(4,1fr);
+}
+
+.btn
+{
+    padding:5px;
+    display: inline-block;
+    color:white;
+    background-color: black;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#calculateButton
+{
+    margin-top:16px;
+    text-align: left;
+}
+
+#bill-area,#promo-code-area
+{
+    margin-top:20px;
+}
+
+.hide
+{
+    display: none;
+}
+
