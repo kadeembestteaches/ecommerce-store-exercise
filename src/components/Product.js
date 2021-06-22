@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Product = ({id,title,qty,unitPrice, extendedPrice,increaseQtyState}) => 
+const Product = ({id,title,qty,unitPrice, extendedPrice,increaseQtyState,decreaseQtyState}) => 
 {
 
 
@@ -12,7 +12,7 @@ const Product = ({id,title,qty,unitPrice, extendedPrice,increaseQtyState}) =>
 
     const decreaseQtyHandler = ()=>{
 
-        alert("The decrease button was pressed");
+        decreaseQtyState(id)
     }
 
     return (

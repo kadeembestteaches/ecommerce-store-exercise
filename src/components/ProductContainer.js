@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-const ProductContainer = ({products,increaseQtyState}) => {
+const ProductContainer = ({products,increaseQtyState,decreaseQtyState}) => {
     return (
 
     <>
@@ -14,7 +14,7 @@ const ProductContainer = ({products,increaseQtyState}) => {
 
         <div id="product-rows-area">
 
-            {products.map((product)=>(<Product id={product.id} key={product.id} title={product.title} qty={product.qty} unitPrice={product.unitPrice} extendedPrice={product.extendedPrice} increaseQtyState={increaseQtyState}/>))}
+            {products.map((product)=>(<Product id={product.id} key={product.id} title={product.title} qty={product.qty} unitPrice={product.unitPrice} extendedPrice={product.extendedPrice} increaseQtyState={increaseQtyState} decreaseQtyState={decreaseQtyState}/>))}
 
             {/*  
             

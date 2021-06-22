@@ -71,3 +71,20 @@ h2
     display: none;
 }
 
+
+header > *
+{
+    display: inline-block;
+    text-decoration: none;
+
+}
+
+
+header h1 a
+{
+    color:black
+}
+header a
+{
+    text-decoration:none ;
+}
