@@ -5,8 +5,31 @@ import ecommerceContext from "../context/EcommerceContext";
 const ProductContainer = () => {
 
     //Here I am going to use the context that was provided in the ContextPRovider
-    const {products} = useContext(ecommerceContext);
+    const {products,setBill} = useContext(ecommerceContext);
 
+    const genrateBillHandler = ()=>{
+
+        let subTotal = 0;
+
+        products.forEach(product=>{
+
+            subTotal+=product.extendedPrice;
+        })
+
+        const tax = 0.13 * subTotal;
+
+        const total = subTotal + tax;
+
+
+        //update the setbill state
+        setBill({
+            subTotal,
+            tax,
+            total
+        })
+
+
+    }
     
     return (
 
@@ -23,16 +46,7 @@ const ProductContainer = () => {
 
             {products.map((product)=>(<Product id={product.id} key={product.id} title={product.title} qty={product.qty} unitPrice={product.unitPrice} extendedPrice={product.extendedPrice}/>))}
 
-            {/*  
-            
-            
-                  <Product title="Pants" qty={0} unitPrice={40.99} extendedPrice={0} />
-                <Product title="Shirt" qty={0} unitPrice={10.99} extendedPrice ={0} />
-                 <Product title="Shoes" qty={0} unitPrice={200.99} extendedPrice ={0} />
-
-            */}
-      
-            <button className="btn" type="button" id="calculateButton">Calculate</button>
+            <button className="btn" type="button" id="calculateButton" onClick={genrateBillHandler}>Calculate</button>
        
         </div>
  

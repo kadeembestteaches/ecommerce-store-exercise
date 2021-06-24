@@ -11,7 +11,6 @@ const Product = ({id,title,qty,unitPrice, extendedPrice}) =>
         //Copy the contents of the existing array into a new  array THAT WE CAN CHANGE!
         const updatedProductsArr = [...products];
 
-
         //I need to locate the product in the array that was clicked by the increase and decrease button
         const selectedProduct = products.find(product=>product.id === id);
 

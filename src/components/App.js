@@ -17,9 +17,14 @@ import "../assets/css/App.css"
 const App = () => {
  const [products, setProducts] = useState([]);
 
+ const [bill, setBill] = useState({
+   subTotal :0,
+   tax :0,
+   total:0
+ });
+
 
   useEffect(()=>{
-
 
       //Async operation //POST,PUT OR DELETE
       fetch("http://localhost:5000/products")
@@ -38,9 +43,6 @@ const App = () => {
   },[])
 
  
-
-
-
   return (
 
 
@@ -48,7 +50,7 @@ const App = () => {
 
         <Switch>
   
-          <ecommerceContext.Provider value={{products,setProducts}} >   
+          <ecommerceContext.Provider value={{products,setProducts,bill,setBill}} >   
         
             <Route exact path="/">
                   <HomePage />
