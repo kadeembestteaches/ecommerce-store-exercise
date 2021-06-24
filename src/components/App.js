@@ -10,11 +10,12 @@ import HomePage from "../pages/HomePage";
 import AboutUsPage from "../pages/AboutUsPage";
 import AddProductFormPage from "../pages/AddProductFormPage";
 
+import ecommerceContext from "../context/EcommerceContext";
+
 import "../assets/css/App.css"
 
 const App = () => {
  const [products, setProducts] = useState([]);
-
 
 
   useEffect(()=>{
@@ -39,44 +40,6 @@ const App = () => {
  
 
 
-const increaseQtyState = (id)=>{
-
-
-  //Copy the contents of the existing array into a new  array THAT WE CAN CHANGE!
-  const updatedProductsArr = [...products];
-
-
-  //I need to locate the product in the array that was clicked by the increase and decrease button
-  const selectedProduct = products.find(product=>product.id === id);
-
-  selectedProduct.qty++;
-  selectedProduct.extendedPrice = selectedProduct.qty * selectedProduct.unitPrice;
-
-  setProducts(updatedProductsArr);
-
-}
-
-
-const decreaseQtyState = (id)=>{
-
-
-   //Copy the contents of the existing array into a new  array THAT WE CAN CHANGE!
-   const updatedProductsArr = [...products];
-
-
-   //I need to locate the product in the array that was clicked by the increase and decrease button
-   const selectedProduct = products.find(product=>product.id === id);
- 
-   if(selectedProduct.qty > 0)
-   {
-      selectedProduct.qty--;
-      selectedProduct.extendedPrice = selectedProduct.qty * selectedProduct.unitPrice;
-    
-      setProducts(updatedProductsArr);
-   }
-
-
-}
 
   return (
 
@@ -85,24 +48,28 @@ const decreaseQtyState = (id)=>{
 
         <Switch>
   
-          <Route exact path="/">
-                <HomePage products={products} increaseQtyHandler={increaseQtyState}  decreaseQtyHandler={decreaseQtyState}/>
-          </Route>
+          <ecommerceContext.Provider value={{products,setProducts}} >   
+        
+            <Route exact path="/">
+                  <HomePage />
+            </Route>
 
-         
-          <Route path="/about-us">
+          
+            <Route path="/about-us">
 
-              <AboutUsPage/>
+                <AboutUsPage/>
 
-          </Route>
+            </Route>
 
 
-         
-          <Route path="/products">
+          
+            <Route path="/products">
 
-              <AddProductFormPage/>
+                <AddProductFormPage/>
 
-          </Route>
+            </Route>
+
+          </ecommerceContext.Provider>
 
         </Switch>
     </Router>

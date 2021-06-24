@@ -5,12 +5,12 @@ import ProductContainer from "../components/ProductContainer";
 import TotalsContainer from "../components/TotalsContainer";
 import PromoCodeContainer from "../components/PromoCodeContainer"
 
-const HomePage = ({products,increaseQtyHandler,decreaseQtyHandler}) => {
+const HomePage = () => {
     return (
         <div id="container">
             <Header/>
             <main>
-                <ProductContainer   products={products} increaseQtyState={increaseQtyHandler} decreaseQtyHandler={decreaseQtyHandler}/>
+                <ProductContainer />
                 <TotalsContainer/>
                 <PromoCodeContainer/>
             </main>

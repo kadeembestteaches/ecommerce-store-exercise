@@ -1,6 +1,13 @@
+import {useContext} from "react"
 import Product from "./Product";
+import ecommerceContext from "../context/EcommerceContext";
 
-const ProductContainer = ({products,increaseQtyState,decreaseQtyState}) => {
+const ProductContainer = () => {
+
+    //Here I am going to use the context that was provided in the ContextPRovider
+    const {products} = useContext(ecommerceContext);
+
+    
     return (
 
     <>
@@ -14,7 +21,7 @@ const ProductContainer = ({products,increaseQtyState,decreaseQtyState}) => {
 
         <div id="product-rows-area">
 
-            {products.map((product)=>(<Product id={product.id} key={product.id} title={product.title} qty={product.qty} unitPrice={product.unitPrice} extendedPrice={product.extendedPrice} increaseQtyState={increaseQtyState} decreaseQtyState={decreaseQtyState}/>))}
+            {products.map((product)=>(<Product id={product.id} key={product.id} title={product.title} qty={product.qty} unitPrice={product.unitPrice} extendedPrice={product.extendedPrice}/>))}
 
             {/*  
             
@@ -30,10 +37,6 @@ const ProductContainer = ({products,increaseQtyState,decreaseQtyState}) => {
         </div>
  
     </>
-
-
-
-
 
 
     )

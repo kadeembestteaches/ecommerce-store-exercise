@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../../../Misc/Practice/e-commerce-vanilla-starter-code"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "lab-2-dominic-waverly"
+	}
+}

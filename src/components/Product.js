@@ -1,18 +1,48 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import ecommerceContext from '../context/EcommerceContext';
 
-const Product = ({id,title,qty,unitPrice, extendedPrice,increaseQtyState,decreaseQtyState}) => 
+const Product = ({id,title,qty,unitPrice, extendedPrice}) => 
 {
+
+    const {products,setProducts} = useContext(ecommerceContext)
 
 
     const increaseQtyHandler = ()=>{
+        //Copy the contents of the existing array into a new  array THAT WE CAN CHANGE!
+        const updatedProductsArr = [...products];
 
-      increaseQtyState(id)
+
+        //I need to locate the product in the array that was clicked by the increase and decrease button
+        const selectedProduct = products.find(product=>product.id === id);
+
+        selectedProduct.qty++;
+        selectedProduct.extendedPrice = selectedProduct.qty * selectedProduct.unitPrice;
+
+        setProducts(updatedProductsArr);
+      
     }
 
 
     const decreaseQtyHandler = ()=>{
 
-        decreaseQtyState(id)
+        //Copy the contents of the existing array into a new  array THAT WE CAN CHANGE!
+        const updatedProductsArr = [...products];
+
+
+        //I need to locate the product in the array that was clicked by the increase and decrease button
+        const selectedProduct = products.find(product=>product.id === id);
+        
+        if(selectedProduct.qty > 0)
+        {
+            selectedProduct.qty--;
+            selectedProduct.extendedPrice = selectedProduct.qty * selectedProduct.unitPrice;
+            
+            setProducts(updatedProductsArr);
+
+         }
+
+
+
     }
 
     return (

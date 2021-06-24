@@ -17,7 +17,6 @@ const TotalsContainer = () => {
 
         </div>
 
-
     )
 }
 
